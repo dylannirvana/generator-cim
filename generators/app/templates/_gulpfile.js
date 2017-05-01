@@ -16,7 +16,6 @@ var env,
     sassSources,
     htmlSources,
     outputDir,
-    wpDir,
     sassStyle;
 
 // ENVIRONMENT
@@ -57,7 +56,7 @@ gulp.task('compass', function() {
     .pipe(compass({
       sass: 'components/sass', // these are origins not destinations
       image: 'builds/development/images', // it is confusing to use the outputDir variable here so I wont
-      css: outputDir, // but this somehow is a desination
+      css: outputDir + 'css', // but this somehow is a desination
       sourcemap: true,
       style: sassStyle
     })

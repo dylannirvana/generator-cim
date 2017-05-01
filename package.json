@@ -1,29 +1,22 @@
 {
   "name": "generator-cim",
-  "version": "0.0.0",
+  "version": "0.0.2",
   "description": "nothing",
   "homepage": "",
-  "author": {
-    "name": "Dylan Nirvana",
-    "email": "dylan@dylannirvana.com",
-    "url": ""
-  },
+  "author": "Dylan Nirvana <dylan@dylannirvana.com>",
   "files": [
     "generators"
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
     "yeoman-generator"
   ],
   "devDependencies": {
-    "yeoman-test": "^1.6.0",
-    "yeoman-assert": "^3.0.0",
-    "nsp": "^2.6.3",
-    "eslint": "^3.18.0",
-    "eslint-config-xo-space": "^0.16.0",
-    "jest": "^19.0.2",
-    "jest-cli": "^19.0.1"
+    "ejs": "^2.5.6",
+    "express": "^4.15.2",
+    "body-parser": "^1.14.0",
+    "cookie-parser": "~1.0.1",
+    "mongoose": "^4.2.4"
   },
   "dependencies": {
     "yeoman-generator": "^1.0.0",
@@ -45,6 +38,9 @@
       "node": true
     }
   },
-  "repository": "/generator-cim",
-  "license": "Apache-2.0"
+  "repository": {
+    "type": "git",
+    "url": "/generator-cim"
+  },
+  "license": "MIT"
 }

@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const yosay = require('yosay');
 
 module.exports = class extends Generator {
+
   prompting() {
     // Have Yeoman greet the user.
     this.log(yosay(
@@ -11,20 +12,42 @@ module.exports = class extends Generator {
     ));
 
     const prompts = [{
-      type: 'confirm',
-      name: 'someAnswer',
-      message: 'Would you like to scaffold a new application?',
-      default: true
+      type: 'input',
+      name: 'name',
+      message: 'What is the name of your application?',
+      default: this.appname
     }];
 
     return this.prompt(prompts).then(props => {
-      // To access props later use this.props.someAnswer;
+      // To access props later use this.props.name;
       this.props = props;
     });
-  }
+
+    // return this.prompt([{
+    //   type    : 'input',
+    //   name    : 'name',
+    //   message : 'What is the name of your project?',
+    //   default : this.appname // Default to current folder name
+    // }, {
+    //   type    : 'confirm',
+    //   name    : 'cool',
+    //   message : 'Would you like to enable the Cool feature?'
+    // }]).then((answers) => {
+    //   this.log('app name', answers.name);
+    //   this.log('cool feature', answers.cool);
+    // });
+    //
+
+  } // END prompting
+
   writing() {
     config: {
       // CREATING THE BUILDS FOLDER
+      this.fs.copy(
+        this.templatePath('_builds/_development/_index.html'),
+        this.destinationPath('builds/development/index.html')
+      );
+      
       this.fs.copy(
         this.templatePath('_builds/_development/_css/_style.css'),
         this.destinationPath('builds/development/css/style.css')
@@ -56,7 +79,7 @@ module.exports = class extends Generator {
         this.templatePath('_components/_sass/_modules/__scene2.scss'),
         this.destinationPath('components/sass/modules/_scene2.scss')
       );
-      
+
       this.fs.copy(
         this.templatePath('_components/_sass/__base.scss'),
         this.destinationPath('components/sass/_base.scss')
@@ -98,7 +121,7 @@ module.exports = class extends Generator {
         this.destinationPath('gulpfile.js')
       );
       this.fs.copy(
-        this.templatePath('_package.json'),
+        this.templatePath('package.json'),
         this.destinationPath('package.json')
       );
       this.fs.copy(
@@ -121,7 +144,7 @@ module.exports = class extends Generator {
     this.destinationRoot('project');
     // returns '~/projects'
 
-    this.destinationPath('project/index.js');
+    this.destinationPath('project' + '/index.js');
     // returns '~/projects/index.js'
   }
 
