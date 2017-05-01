@@ -44,10 +44,40 @@ module.exports = class extends Generator {
     config: {
       // CREATING THE BUILDS FOLDER
       this.fs.copy(
+        this.templatePath('_builds/_development/_album.html'),
+        this.destinationPath('builds/development/album.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('_builds/_development/_blog.html'),
+        this.destinationPath('builds/development/blog.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('_builds/_development/_carousel.html'),
+        this.destinationPath('builds/development/carousel.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('_builds/_development/_cover.html'),
+        this.destinationPath('builds/development/cover.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('_builds/_development/_jumbotron.html'),
+        this.destinationPath('builds/development/jumbotron.html')
+      );
+
+      this.fs.copy(
+        this.templatePath('_builds/_development/_signin.html'),
+        this.destinationPath('builds/development/signin.html')
+      );
+
+      this.fs.copy(
         this.templatePath('_builds/_development/_index.html'),
         this.destinationPath('builds/development/index.html')
       );
-      
+
       this.fs.copy(
         this.templatePath('_builds/_development/_css/_style.css'),
         this.destinationPath('builds/development/css/style.css')

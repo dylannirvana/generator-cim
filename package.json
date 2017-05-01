@@ -5,7 +5,7 @@
   "homepage": "",
   "author": "Dylan Nirvana <dylan@dylannirvana.com>",
   "files": [
-    "generators"
+    "generators/app"
   ],
   "main": "generators/index.js",
   "keywords": [
